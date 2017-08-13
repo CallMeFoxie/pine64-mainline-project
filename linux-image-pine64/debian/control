@@ -7,5 +7,5 @@ Build-Depends: dpkg (>= 1.13.19), debhelper (>= 9), gawk
 
 Package: linux-image-pine64
 Architecture: all
-Depends: ${misc:Depends}, linux-image-@VERSION@
+Depends: ${misc:Depends}, linux-image-4.13.0-rc4
 Description: Metapackage for pine64 to keep up2date kernels via package
