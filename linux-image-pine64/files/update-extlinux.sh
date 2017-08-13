@@ -19,7 +19,7 @@ for image in `ls -t /boot/vmlinuz-*`; do
     echo "> found dtb"
   fi
 
-  echo >> /boot/extlinux/extlinux.conf << EOF
+  cat >> /boot/extlinux/extlinux.conf << EOF
 LABEL linux-pine64-$version
   KERNEL /vmlinuz-$version
   ${initrd}
@@ -30,7 +30,7 @@ done
 
 if [ x"${XVERSION}" != "x" ]; then
   echo "Setting linux-pine64-${XVERSION}" as the default option
-  echo >> /tmp/extlinux.conf << EOF
+  cat > /tmp/extlinux.conf << EOF
 DEFAULT linux-pine64-${XVERSION}
 EOF
   mv /boot/extlinux/extlinux.conf /tmp/extlinux-imgs.conf
