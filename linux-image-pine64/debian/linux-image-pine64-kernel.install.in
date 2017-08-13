@@ -1,0 +1,4 @@
+kernel-@VERSION@ /boot/kernel-@VERSION@/kernel-@VERSION@
+initrd-@VERSION@.img /boot/kernel-@VERSION@/initrd-@VERSION@.img
+kernel_modules/ /
+dtbs/ /boot/kernel-@VERSION@/

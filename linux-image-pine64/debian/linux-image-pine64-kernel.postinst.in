@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+case "$1" in
+    configure)
+	cp /usr/lib/linux-image-@VERSION@/allwinner/sun50i-a64-pine64-plus.dtb /boot/dtb-@VERSION@.dtb
+    ;;
+esac
+
+/usr/bin/update-extlinux.sh @VERSION@
+
+#DEBHELPER#
