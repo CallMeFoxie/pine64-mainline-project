@@ -9,19 +9,13 @@ if [ x"$ROOT" = "x" ]; then
  exit 
 fi
 
-EXTRA="iproute2,systemd-sysv,ntp,udev,vim,sudo,openssh-server,ifupdown,isc-dhcp-client,kmod"
+EXTRA="iproute2,systemd-sysv,ntp,udev,vim,sudo,openssh-server,ifupdown,isc-dhcp-client,kmod,apt-transport-https,ca-certificates"
 
-run_chroot {
+function run_chroot {
   chroot $ROOT $@ 
 }
 
 qemu-debootstrap --arch=arm64 --variant=minbase ${DISTRO} $ROOT ${REPO} --include=$EXTRA
 
-echo "pine64-unnamed" > $ROOT/etc/hostname
-
-run_chroot apt-get update
-run_chroot hostname pine64-unnamed
-
-echo -n > $ROOT/etc/fstab
-echo "/dev/mmcblk0p1 /boot vfat errors=remount-ro 0 1" >> $ROOT/etc/fstab
-echo "/dev/mmcblk0p2 /     ext4 defaults,noatime  0 1" >> $ROOT/etc/fstab
+#run_chroot apt-get update
+#run_chroot hostname pine64-unnamed
