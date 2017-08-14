@@ -1,0 +1,58 @@
+#!/bin/sh
+
+XVERSION=$1
+
+[ -f /boot/extlinux/extlinux.conf ] && echo "Backing up old extlinux.conf" && mv /boot/extlinux/extlinux.conf /boot/extlinux/extlinux.conf.old 
+
+for image in `ls -t /boot/vmlinuz-*`; do
+  version=`echo $image | sed 's/\/boot\/vmlinuz-//'`
+  fdt=''
+  initrd=''
+
+  echo "Found kernel ${version}"
+  echo "Running depmod..."
+  depmod ${version}
+
+  echo "Adding linux-pine64-${version} to the list..."
+  if [ -f /boot/initrd.img-$version ]; then
+    initrd="INITRD /initrd.img-$version"
+    echo "> found initrd"
+  fi
+  if [ ! -f /boot/dtb-${version}.dtb ]; then
+    echo "> found dtb"
+  elif [ -f /usr/lib/linux-image-${version}/allwinner/sun50i-a64-pine64-plus.dtb ]; then
+    echo "> copying dtb"
+    cp /usr/lib/linux-image-${version}/allwinner/sun50i-a64-pine64-plus.dtb
+  else 
+    echo "Missing DTB for image ${version}! Cannot continue ..."
+    exit 1
+  fi
+
+  fdt="FDT /dtb-${version}.dtb"
+
+  cat >> /boot/extlinux/extlinux.conf << EOF
+LABEL linux-pine64-$version
+  KERNEL /vmlinuz-$version
+  ${initrd}
+  ${fdt}
+  APPEND root=/dev/mmcblk0p2 console=ttyS0,115200 rootwait rw
+EOF
+done
+
+DEFAULT=""
+
+if [ x"${XVERSION}" != "x" ]; then
+  DEFAULT=${XVERSION}
+else
+  DEFAULT=`ls /boot/vmlinuz-* | sort -rV | head -n 1 | sed 's/\/boot\/vmlinuz-//'`
+fi
+
+if [ x"${DEFAULT}" != "x" ]; then
+  echo "Setting linux-pine64-${DEFAULT}" as the default option
+  cat > /tmp/extlinux.$$ << EOF
+DEFAULT linux-pine64-${DEFAULT}
+EOF
+  mv /boot/extlinux/extlinux.conf /tmp/extlinux-imgs.$$
+  cat /tmp/extlinux.$$ /tmp/extlinux-imgs.$$ > /boot/extlinux/extlinux.conf
+  rm /tmp/extlinux.$$ /tmp/extlinux-imgs.$$
+fi

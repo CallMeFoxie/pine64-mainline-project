@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+case "$1" in
+    configure)
+        run-parts /etc/kernel/postinst.d/
+    ;;
+esac
+
+
+#DEBHELPER#
