@@ -18,11 +18,11 @@ for image in `ls -t /boot/vmlinuz-*`; do
     initrd="INITRD /initrd.img-$version"
     echo "> found initrd"
   fi
-  if [ ! -f /boot/dtb-${version}.dtb ]; then
+  if [ -f /boot/dtb-${version}.dtb ]; then
     echo "> found dtb"
   elif [ -f /usr/lib/linux-image-${version}/allwinner/sun50i-a64-pine64-plus.dtb ]; then
     echo "> copying dtb"
-    cp /usr/lib/linux-image-${version}/allwinner/sun50i-a64-pine64-plus.dtb
+    cp /usr/lib/linux-image-${version}/allwinner/sun50i-a64-pine64-plus.dtb /boot/dtb-${version}.dtb
   else 
     echo "Missing DTB for image ${version}! Cannot continue ..."
     exit 1

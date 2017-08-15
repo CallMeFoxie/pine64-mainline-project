@@ -1,2 +1,2 @@
-/usr/bin/update-extlinux /etc/kernel/postinst.d/
-/usr/bin/update-extlinux /etc/kernel/postrm.d/
+/usr/bin/update-extlinux /etc/kernel/postinst.d/update-extlinux
+/usr/bin/update-extlinux /etc/kernel/postrm.d/update-extlinux
