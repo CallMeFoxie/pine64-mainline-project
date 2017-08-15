@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UBOOT_VERSION="v2017.09-rc1"
+UBOOT_VERSION="v2017.09-rc2"
 ATF_VERSION="allwinner"
 
 mkdir -p output/{config,output,build}
