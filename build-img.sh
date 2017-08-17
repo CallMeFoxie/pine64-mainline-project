@@ -47,6 +47,10 @@ mount ${TARGET}1 ${ROOTFS}/boot
 echo "Copying overlay extra files"
 cp -rvp overlay/* ${ROOTFS}/
 
+echo "Removing extra files"
+rm ${ROOTFS}/etc/machine-id 
+rm ${ROOTFS}/etc/ssh/ssh_host_*
+
 echo "Adding kernel"
 mkdir -p ${ROOTFS}/boot/extlinux
 run_chroot apt-get update
