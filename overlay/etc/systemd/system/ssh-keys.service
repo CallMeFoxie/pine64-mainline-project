@@ -1,0 +1,13 @@
+[Unit]
+ConditionFirstBoot=yes
+Description=Setup SSH keys on the first boot
+Before=ssh.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
+ExecStart=/usr/bin/ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa
+ExecStart=/usr/bin/ssh-keygen -f /etc/ssh/ssh_host_key_ed25519 -N '' -t ed25519
+
+[Install]
+WantedBy=multi-user.target
