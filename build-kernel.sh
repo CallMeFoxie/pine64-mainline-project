@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KERNEL_VERSION="4.13-rc5"
+KERNEL_VERSION="4.13-rc6"
 
 mkdir -p output/{config,output,build}
 
