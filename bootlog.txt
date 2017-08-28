@@ -1,0 +1,360 @@
+U-Boot SPL 2017.09-rc2 (Aug 15 2017 - 16:05:06)
+DRAM: 2048 MiB
+Trying to boot from MMC1
+
+
+U-Boot 2017.09-rc2 (Aug 15 2017 - 16:05:06 +0000) Allwinner Technology
+
+CPU:   Allwinner A64 (SUN50I)
+Model: Pine64+
+DRAM:  2 GiB
+MMC:   SUNXI SD/MMC: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Net:   phy interface7
+eth0: ethernet@01c30000
+Hit any key to stop autoboot:  0
+switch to partitions #0, OK
+mmc0 is current device
+Scanning mmc 0:1...
+Found /extlinux/extlinux.conf
+Retrieving file: /extlinux/extlinux.conf
+332 bytes read in 89 ms (2.9 KiB/s)
+1:      linux-pine64-4.13.0-rc7
+Retrieving file: /vmlinuz-4.13.0-rc7
+11563520 bytes read in 907 ms (12.2 MiB/s)
+append: root=/dev/mmcblk0p2 console=ttyS0,115200 rootwait rw
+Retrieving file: /dtb-4.13.0-rc7.dtb
+10098 bytes read in 127 ms (77.1 KiB/s)
+## Flattened Device Tree blob at 4fa00000
+   Booting using the fdt blob at 0x4fa00000
+   Loading Device Tree to 0000000049ffa000, end 0000000049fff771 ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.13.0-rc7 (root@ae50c5e26e6d) (gcc version 6.3.0 20170516 (Debian 6.3.0-18)) #1 SMP Mon Aug 28 16:07:44 UTC 2017
+[    0.000000] Boot CPU: AArch64 Processor [410fd034]
+[    0.000000] Machine model: Pine64+
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: UEFI not found.
+[    0.000000] cma: Reserved 16 MiB at 0x00000000bf000000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] percpu: Embedded 26 pages/cpu @ffff80007ef7d000 s66200 r8192 d32104 u106496
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: enabling workaround for ARM erratum 845719
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 516096
+[    0.000000] Kernel command line: root=/dev/mmcblk0p2 console=ttyS0,115200 rootwait rw
+[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes)
+[    0.000000] Memory: 2032660K/2097152K available (7420K kernel code, 604K rwdata, 2664K rodata, 576K init, 390K bss, 48108K reserved, 16384K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     modules : 0xffff000000000000 - 0xffff000008000000   (   128 MB)
+[    0.000000]     vmalloc : 0xffff000008000000 - 0xffff7dffbfff0000   (129022 GB)
+[    0.000000]       .text : 0xffff000008080000 - 0xffff0000087c0000   (  7424 KB)
+[    0.000000]     .rodata : 0xffff0000087c0000 - 0xffff000008a60000   (  2688 KB)
+[    0.000000]       .init : 0xffff000008a60000 - 0xffff000008af0000   (   576 KB)
+[    0.000000]       .data : 0xffff000008af0000 - 0xffff000008b87200   (   605 KB)
+[    0.000000]        .bss : 0xffff000008b87200 - 0xffff000008be8ab0   (   391 KB)
+[    0.000000]     fixed   : 0xffff7dfffe7fd000 - 0xffff7dfffec00000   (  4108 KB)
+[    0.000000]     PCI I/O : 0xffff7dfffee00000 - 0xffff7dffffe00000   (    16 MB)
+[    0.000000]     vmemmap : 0xffff7e0000000000 - 0xffff800000000000   (  2048 GB maximum)
+[    0.000000]               0xffff7e0000000000 - 0xffff7e0002000000   (    32 MB actual)
+[    0.000000]     memory  : 0xffff800000000000 - 0xffff800080000000   (  2048 MB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000]  RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=4.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000004] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000184] Console: colour dummy device 80x25
+[    0.000207] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=96000)
+[    0.000218] pid_max: default: 32768 minimum: 301
+[    0.000298] Security Framework initialized
+[    0.000353] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000377] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.001364] ASID allocator initialised with 65536 entries
+[    0.001428] Hierarchical SRCU implementation.
+[    0.001719] EFI services will not be available.
+[    0.001843] smp: Bringing up secondary CPUs ...
+[    0.002780] Detected VIPT I-cache on CPU1
+[    0.002831] CPU1: Booted secondary processor [410fd034]
+[    0.003439] Detected VIPT I-cache on CPU2
+[    0.003466] CPU2: Booted secondary processor [410fd034]
+[    0.004056] Detected VIPT I-cache on CPU3
+[    0.004082] CPU3: Booted secondary processor [410fd034]
+[    0.004136] smp: Brought up 1 node, 4 CPUs
+[    0.004157] SMP: Total of 4 processors activated.
+[    0.004165] CPU features: detected feature: 32-bit EL0 Support
+[    0.004274] CPU: All CPU(s) started at EL2
+[    0.004296] alternatives: patching kernel code
+[    0.005460] devtmpfs: initialized
+[    0.007572] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.007593] futex hash table entries: 1024 (order: 5, 131072 bytes)
+[    0.008275] pinctrl core: initialized pinctrl subsystem
+[    0.008756] DMI not present or invalid.
+[    0.008986] random: get_random_u32 called from bucket_table_alloc+0xf8/0x280 with crng_init=0
+[    0.009068] NET: Registered protocol family 16
+[    0.009461] random: fast init done
+[    0.009924] cpuidle: using governor menu
+[    0.010256] vdso: 2 pages (1 code @ ffff0000087c6000, 1 data @ ffff000008af4000)
+[    0.010271] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.011204] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.011321] Serial: AMBA PL011 UART driver
+[    0.022756] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.023550] ACPI: Interpreter disabled.
+[    0.024157] vgaarb: loaded
+[    0.024429] SCSI subsystem initialized
+[    0.024634] usbcore: registered new interface driver usbfs
+[    0.024684] usbcore: registered new interface driver hub
+[    0.024754] usbcore: registered new device driver usb
+[    0.024937] media: Linux media interface: v0.10
+[    0.024969] Linux video capture interface: v2.00
+[    0.025043] pps_core: LinuxPPS API ver. 1 registered
+[    0.025049] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.025068] PTP clock support registered
+[    0.025183] dmi: Firmware registration failed.
+[    0.025971] clocksource: Switched to clocksource arch_sys_counter
+[    0.026142] VFS: Disk quotas dquot_6.6.0
+[    0.026203] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.026410] pnp: PnP ACPI: disabled
+[    0.032713] NET: Registered protocol family 2
+[    0.033192] TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.033350] TCP bind hash table entries: 16384 (order: 6, 262144 bytes)
+[    0.033697] TCP: Hash tables configured (established 16384 bind 16384)
+[    0.033823] UDP hash table entries: 1024 (order: 3, 32768 bytes)
+[    0.033884] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes)
+[    0.034106] NET: Registered protocol family 1
+[    0.034443] RPC: Registered named UNIX socket transport module.
+[    0.034450] RPC: Registered udp transport module.
+[    0.034455] RPC: Registered tcp transport module.
+[    0.034460] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.036586] audit: initializing netlink subsys (disabled)
+[    0.036686] audit: type=2000 audit(0.034:1): state=initialized audit_enabled=0 res=1
+[    0.036938] workingset: timestamp_bits=46 max_order=19 bucket_order=0
+[    0.043905] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.044396] NFS: Registering the id_resolver key type
+[    0.044424] Key type id_resolver registered
+[    0.044430] Key type id_legacy registered
+[    0.044443] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.044609] SGI XFS with ACLs, security attributes, no debug enabled
+[    0.048252] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+[    0.048268] io scheduler noop registered
+[    0.048399] io scheduler cfq registered (default)
+[    0.048406] io scheduler mq-deadline registered
+[    0.048412] io scheduler kyber registered
+[    0.049052] sun4i-usb-phy 1c19400.phy: failed to get clock usb0_phy
+[    0.051520] sun50i-a64-r-pinctrl 1f02c00.pinctrl: initialized sunXi PIO driver
+[    0.056858] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.057735] dw-apb-uart 1c28000.serial: could not find pctldev for node /soc/pinctrl@1c20800/uart0@0, deferring probe
+[    0.058708] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.064378] loop: module loaded
+[    0.065186] libphy: Fixed MDIO Bus: probed
+[    0.065432] VFIO - User Level meta-driver version: 0.3
+[    0.065590] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.065597] ehci-pci: EHCI PCI platform driver
+[    0.065661] ehci-platform: EHCI generic platform driver
+[    0.065854] ehci-platform 1c1a000.usb: EHCI Host Controller
+[    0.065882] ehci-platform 1c1a000.usb: new USB bus registered, assigned bus number 1
+[    0.066391] ehci-platform 1c1a000.usb: irq 8, io mem 0x01c1a000
+[    0.082030] ehci-platform 1c1a000.usb: USB 2.0 started, EHCI 1.00
+[    0.082847] hub 1-0:1.0: USB hub found
+[    0.082885] hub 1-0:1.0: 1 port detected
+[    0.083398] usbcore: registered new interface driver usb-storage
+[    0.084221] sun6i-rtc 1f00000.rtc: rtc core: registered rtc-sun6i as rtc0
+[    0.084231] sun6i-rtc 1f00000.rtc: RTC enabled
+[    0.084264] i2c /dev entries driver
+[    0.084363] mv64xxx_i2c 1c2b000.i2c: could not find pctldev for node /soc/pinctrl@1c20800/i2c1_pins, deferring probe
+[    0.084890] sdhci: Secure Digital Host Controller Interface driver
+[    0.084896] sdhci: Copyright(c) Pierre Ossman
+[    0.085004] sunxi-mmc 1c0f000.mmc: could not find pctldev for node /soc/pinctrl@1c20800/mmc0-pins, deferring probe
+[    0.085082] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.085424] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.085708] usbcore: registered new interface driver usbhid
+[    0.085713] usbhid: USB HID core driver
+[    0.086184] NET: Registered protocol family 17
+[    0.086268] Key type dns_resolver registered
+[    0.086823] registered taskstats version 1
+[    0.094483] sun50i-a64-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
+[    0.094944] console [ttyS0] disabled
+[    0.115238] 1c28000.serial: ttyS0 at MMIO 0x1c28000 (irq = 15, base_baud = 1500000) is a U6_16550A
+[    1.000328] console [ttyS0] enabled
+[    1.004327] ehci-platform 1c1b000.usb: EHCI Host Controller
+[    1.009929] ehci-platform 1c1b000.usb: new USB bus registered, assigned bus number 2
+[    1.017889] ehci-platform 1c1b000.usb: irq 10, io mem 0x01c1b000
+[    1.037972] ehci-platform 1c1b000.usb: USB 2.0 started, EHCI 1.00
+[    1.044585] hub 2-0:1.0: USB hub found
+[    1.048365] hub 2-0:1.0: 1 port detected
+[    1.052780] usb_phy_generic usb_phy_generic.0.auto: usb_phy_generic.0.auto supply vcc not found, using dummy regulator
+[    1.063727] musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver
+[    1.069481] musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 3
+[    1.077806] hub 3-0:1.0: USB hub found
+[    1.081593] hub 3-0:1.0: 1 port detected
+[    1.087021] sunxi-mmc 1c0f000.mmc: Got CD GPIO
+[    1.129986] sunxi-mmc 1c0f000.mmc: base:0xffff000008072000 irq:6
+[    1.136186] sun6i-rtc 1f00000.rtc: setting system clock to 2017-08-28 17:18:11 UTC (1503940691)
+[    1.145287] Waiting for root device /dev/mmcblk0p2...
+[    1.191215] mmc0: new high speed SDHC card at address 0007
+[    1.197018] mmcblk0: mmc0:0007 SD16G 14.5 GiB
+[    1.202848]  mmcblk0: p1 p2
+[    1.214882] EXT4-fs (mmcblk0p2): couldn't mount as ext3 due to feature incompatibilities
+[    1.223659] EXT4-fs (mmcblk0p2): couldn't mount as ext2 due to feature incompatibilities
+[    1.259231] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    1.267359] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    1.274416] devtmpfs: mounted
+[    1.277753] Freeing unused kernel memory: 576K
+[    2.136124] NET: Registered protocol family 10
+[    2.141286] Segment Routing with IPv6
+[    2.158114] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    2.189124] systemd[1]: systemd 232 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD +IDN)
+[    2.207529] systemd[1]: Detected architecture arm64.
+
+Welcome to Debian GNU/Linux 9 (stretch)!
+
+[    2.250978] systemd[1]: Set hostname to <pine64-unknown>.
+[    2.715871] systemd[1]: Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket (/dev/log).
+[    2.734107] systemd[1]: Reached target Swap.
+[  OK  ] Reached target Swap.
+[    2.750199] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    2.766147] systemd[1]: Listening on udev Kernel Socket.
+[  OK  ] Listening on udev Kernel Socket.
+[    2.783693] systemd[1]: Created slice System Slice.
+[  OK  ] Created slice System Slice.
+[    2.802133] systemd[1]: Reached target Slices.
+[  OK  ] Reached target Slices.
+[    2.818277] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Listening on /dev/initctl Compatibility Named Pipe.
+         Starting Load Kernel Modules...
+[  OK  ] Created slice system-systemd\x2dfsck.slice.
+         Starting Create list of required st…ce nodes for the current kernel...
+[  OK  ] Created slice system-getty.slice.
+[    2.914744] dwmac-sun8i 1c30000.ethernet: PTP uses main clock
+[    2.920583] dwmac-sun8i 1c30000.ethernet: No regulator found
+[    2.926302] dwmac-sun8i 1c30000.ethernet: Will use external PHY
+[    2.932361] dwmac-sun8i 1c30000.ethernet: Current syscon value is not the default 6 (expect 0)
+[    2.941135] dwmac-sun8i 1c30000.ethernet: Chain mode enabled
+         [    2.946852] dwmac-sun8i 1c30000.ethernet: No HW DMA feature register supported
+Mounting POSIX Message Queue File System...
+[    2.954862] dwmac-sun8i 1c30000.ethernet: Normal descriptors
+[    2.964382] dwmac-sun8i 1c30000.ethernet: RX Checksum Offload Engine supported
+[    2.971603] dwmac-sun8i 1c30000.ethernet: COE Type 2
+[    2.976574] dwmac-sun8i 1c30000.ethernet: TX Checksum insertion supported
+[    2.976740] libphy: stmmac: probed
+[  OK  ] Listening on fsck to fsckd communication Socket.
+         Starting Remount Root and Kernel File Systems...
+         Mounting Huge Pages File System...[    3.025528] EXT4-fs (mmcblk0p2): re-mounted. Opts: (null)
+
+[  OK  ] Listening on Network Service Netlink Socket.
+         Mounting Debug File System...
+[  OK  ] Reached target Remote File Systems.
+[  OK  ] Listening on Journal Audit Socket.
+         Starting Journal Service...
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Reached target Encrypted Volumes.
+[  OK  ] Reached target Paths.
+[  OK  ] Listening on udev Control Socket.
+[  OK  ] Created slice system-serial\x2dgetty.slice.
+[  OK  ] Mounted Huge Pages File System.
+[  OK  ] Mounted POSIX Message Queue File System.
+[  OK  ] Mounted Debug File System.
+[  OK  ] Started Journal Service.
+[  OK  ] Started Load Kernel Modules.
+[  OK  ] Started Create list of required sta…vice nodes for the current kernel.
+[  OK  ] Started Remount Root and Kernel File Systems.
+         Starting udev Coldplug all Devices...
+         Starting Load/Save Random Seed...
+         Starting Create Static Device Nodes in /dev...
+         Mounting Configuration File System...
+         Starting Apply Kernel Variables...
+         Starting Flush Journal to Persistent Storage...
+[  OK  ] Mounted Configuration File System.
+[  OK  ] Started Load/Save Random Seed.
+[  OK  ] Started Apply Kernel Variables.
+[  OK  ] Started Create Static Device Nodes in /dev.
+[  OK  ] Reached target Local File Systems (Pre).
+         Starting udev Kernel Device Manager...
+[  OK  ] Started udev Coldplug all Devices.
+[    3.536157] systemd-journald[908]: Received request to flush runtime journal from PID 1
+[  OK  ] Started Flush Journal to Persistent Storage.
+[  OK  ] Started udev Kernel Device Manager.
+         Starting Network Service...
+[  OK  ] Started Network Service.
+         Starting Wait for Network to be Configured...
+[  OK  ] Found device /dev/ttyS0.
+[  OK  ] Found device /dev/mmcblk0p1.
+         Starting File System Check on /dev/mmcblk0p1...
+[  OK  ] Started File System Check Daemon to report status.
+[  OK  ] Started File System Check on /dev/mmcblk0p1.
+         Mounting /boot...
+[    4.230219] EXT4-fs (mmcblk0p1): mounting ext2 file system using the ext4 subsystem
+[    4.247999] EXT4-fs (mmcblk0p1): mounted filesystem without journal. Opts: errors=remount-ro
+[  OK  ] Mounted /boot.
+[  OK  ] Reached target Local File Systems.
+         Starting Raise network interfaces...
+         Starting Create Volatile Files and Directories...
+[  OK  ] Started Create Volatile Files and Directories.
+[  OK  ] Reached target System Time Synchronized.
+         Starting Update UTMP about System Boot/Shutdown...
+[  OK  ] Started Update UTMP about System Boot/Shutdown.
+[  OK  ] Reached target System Initialization.
+         Starting Docker Socket for the API.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Listening on OpenBSD Secure Shell server socket.
+[  OK  ] Listening on Docker Socket for the API.
+[  OK  ] Reached target Sockets.
+[  OK  ] Reached target Basic System.
+         Starting getty on tty2-tty6 if dbus and logind are not available...
+         Starting Provide limited super user privileges to specific users...
+[  OK  ] Started getty on tty2-tty6 if dbus and logind are not available.
+[    4.652074] Generic PHY stmmac-0:01: attached PHY driver [Generic PHY] (mii_bus:phy_addr=stmmac-0:01, irq=-1)
+[    4.663657] dwmac-sun8i 1c30000.ethernet eth0: No MAC Management Counters available
+[    4.671480] dwmac-sun8i 1c30000.ethernet eth0: PTP not supported by HW
+[  OK  [    4.678455] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+] Started Provide limited super user privileges to specific users.
+[  OK  ] Started Raise network interfaces.
+[  OK  ] Reached target Network.
+         Starting Network Name Resolution...
+         Starting Permit User Sessions...
+[  OK  ] Started Permit User Sessions.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttyS0.
+[  OK  ] Started Getty on tty3.
+[  OK  ] Started Getty on tty6.
+[  OK  ] Started Getty on tty5.
+[  OK  ] Started Getty on tty4.
+[  OK  ] Started Getty on tty2.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Started Network Name Resolution.
+[    5.694776] dwmac-sun8i 1c30000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+[    5.703350] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[  OK  ] Started Wait for Network to be Configured.
+[  OK  ] Reached target Network is Online.
+         Starting Docker Application Container Engine...
+[  OK  ] Started Daily apt download activities.
+[  OK  ] Started Daily apt upgrade and clean activities.
+[  OK  ] Reached target Timers.
+         Starting LSB: Start NTP daemon...
+[  OK  ] Started LSB: Start NTP daemon.
+[   10.870192] random: crng init done
+[   11.111347] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[   11.128879] Bridge firewalling registered
+[   11.155887] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+
+[   11.729504] IPv6: ADDRCONF(NETDEV_UP): docker0: link is not ready
+Debian GNU/Linux 9 pine64-unknown ttyS0
+
+pine64-unknown login:
+
