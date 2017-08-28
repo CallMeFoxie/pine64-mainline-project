@@ -10,6 +10,7 @@ docker run -ti \
   -e "ID=`id -u`" \
   -e "BUSYBOX_VERSION=$BUSYBOX_VERSION" \
   -e "CROSS_COMPILE=aarch64-linux-gnu-" \
+  -u `id -u`:`id -g` \
   -v `pwd`/output:/target aarch64-builder /bin/bash -e -c '\
   echo "===== Getting build packages =====" && \
   cd /target/build/ && \

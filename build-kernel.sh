@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KERNEL_VERSION="4.13-rc6"
+KERNEL_VERSION="4.13-rc7"
 
 mkdir -p output/{config,output,build}
 
@@ -10,6 +10,7 @@ docker run -ti \
   -e "ID=`id -u`" \
   -e "KERNEL_VERSION=$KERNEL_VERSION" \
   -e "CROSS_COMPILE=aarch64-linux-gnu-" \
+  -u `id -u`:`id -g` \
   -v `pwd`/output:/target aarch64-builder /bin/bash -e -c '\
   echo "===== Getting build packages =====" && \
   cd /target/build/ && \

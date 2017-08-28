@@ -12,6 +12,7 @@ docker run -ti \
   -e "UBOOT_VERSION=$UBOOT_VERSION" \
   -e "ATF_VERSION=$ATF_VERSION" \
   -e "CROSS_COMPILE=aarch64-linux-gnu-" \
+  -u `id -u`:`id -g` \
   -v `pwd`/output:/target aarch64-builder /bin/bash -e -c '\
   echo "===== Getting build packages =====" && \
   cd /target/build/ && \
