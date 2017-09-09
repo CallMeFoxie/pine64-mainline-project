@@ -44,7 +44,7 @@ DEFAULT=""
 if [ x"${XVERSION}" != "x" ]; then
   DEFAULT=${XVERSION}
 else
-  DEFAULT=`ls /boot/vmlinuz-* | sort -rV | head -n 1 | sed 's/\/boot\/vmlinuz-//'`
+  DEFAULT=`ls -t /boot/vmlinuz-* | head -n 1 | sed 's/\/boot\/vmlinuz-//'`
 fi
 
 if [ x"${DEFAULT}" != "x" ]; then

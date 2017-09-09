@@ -1,3 +1,15 @@
+linux-image-pine64 (4.13.0-00019-g7187093777a4) stable; urgency=medium
+
+  * upgrade kernel to 4.13.0-00019-g7187093777a4
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Sat, 09 Sep 2017 15:59:48 +0200
+
+linux-image-pine64 (4.13.0) stable; urgency=medium
+
+  * upgrade kernel to 4.13.0
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Sat, 09 Sep 2017 13:49:49 +0000
+
 linux-image-pine64 (4.13.0-rc7) stable; urgency=medium
 
   * upgrade kernel to 4.13.0-rc7
