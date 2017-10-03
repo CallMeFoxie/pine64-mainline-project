@@ -12,7 +12,7 @@ docker run -ti \
   cd /base/components/arm-trusted-firmware/ && \
   make clean && \
   make -j4 PLAT=sun50iw1p1 DEBUG=0 bl31 && \
-  export BL31=/components/arm-trusted-firmware/build/sun50iw1p1/release/bl31.bin && \
+  export BL31=/base/components/arm-trusted-firmware/build/sun50iw1p1/release/bl31.bin && \
   echo "===== Building U-Boot =====" && \
   cd /base/components/u-boot/ && \
   cp /base/config/uboot.config .config && \

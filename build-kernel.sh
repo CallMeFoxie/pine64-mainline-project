@@ -10,6 +10,11 @@ docker run -ti \
        /bin/bash -e -c '\
   echo "===== Building Kernel =====" && \
   cd /base/components/linux/ && \
+  git clean -f -x -d && \
+  git reset HEAD --hard && \
+  (for i in `ls /base/patches/kernel/*`; do \
+    patch -p1 < $i; \
+  done) && \
   cp /base/config/kernel.config .config && \
   ARCH=arm64 make clean && \
   ARCH=arm64 make oldconfig && \
@@ -18,8 +23,6 @@ docker run -ti \
   echo "===== Building Meta Package ====" && \
   KERNELVERSION=`cd /base/components/linux && make kernelversion` && \
   PKGVERSION=`cd /base/linux-image-pine64/ && dpkg-parsechangelog -S Version` && \
-  ( [ "$KERNELVERSION" != "$PKGVERSION" ] && (echo "Updating meta package..." && cd /base/linux-image-pine64/ && ./update.sh $KERNELVERSION) || (echo "No need for update")) ; \
-  cd /base/linux-image-pine64 && \
-  dpkg-buildpackage && \
+  ( [ "$KERNELVERSION" != "$PKGVERSION" ] && (echo "Updating meta package..." && cd /base/linux-image-pine64/ && ./update.sh $KERNELVERSION && dpkg-buildpackage) || (echo "No need for update" && cd /base/linux-image-pine64/ && dpkg-buildpackage)) ; \
   mv /base/linux-image-pine64*.deb /base/output/ && \
   rm /base/linux-image-pine64*.changes'

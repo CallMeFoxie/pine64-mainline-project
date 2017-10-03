@@ -18,6 +18,7 @@ function run_chroot {
 
 echo "Creating new image"
 dd if=/dev/zero of=$IMAGE bs=1G count=4 # create an empty 4GB file
+#truncate -s 4G $IMAGE
 
 sfdisk $IMAGE < config/partitions
 
@@ -72,6 +73,6 @@ if [ -f $IMAGE ]; then
 fi
 
 echo "Adding SPL/U-Boot"
-dd conv=notrunc if=output/output/u-boot-sunxi-image.spl of=$IMAGE bs=8k seek=1 
+dd conv=notrunc if=output/u-boot-sunxi-image.spl of=$IMAGE bs=8k seek=1 
 
 echo "All done!"

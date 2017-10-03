@@ -17,7 +17,7 @@ mv changelog changelog_old
 cat /tmp/changelog.tmp changelog_old > changelog
 rm changelog_old
 
-rm control || :
+#rm control || :
 cat control.in | sed "s/@VERSION@/${VERSION}/g" > control
 
 #rm linux-image-pine64.postinst
@@ -31,4 +31,4 @@ popd
 dpkg-buildpackage -tc -uc -b
 
 #rm debian/linux-image-pine64.postinst debian/linux-image-pine64.install
-rm debian/control
+rm debian/control || :
