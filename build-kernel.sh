@@ -22,7 +22,7 @@ docker run -ti \
   cp ../*.deb /base/output/ && \
   echo "===== Building Meta Package ====" && \
   KERNELVERSION=`cd /base/components/linux && make kernelversion` && \
-  PKGVERSION=`cd /base/linux-image-pine64/ && dpkg-parsechangelog -S Version` && \
-  ( [ "$KERNELVERSION" != "$PKGVERSION" ] && (echo "Updating meta package..." && cd /base/linux-image-pine64/ && ./update.sh $KERNELVERSION && dpkg-buildpackage) || (echo "No need for update" && cd /base/linux-image-pine64/ && dpkg-buildpackage)) ; \
+  cd /base/linux-image-pine64/ && \
+  ./update.sh $KERNELVERSION \
   mv /base/linux-image-pine64*.deb /base/output/ && \
   rm /base/linux-image-pine64*.changes'

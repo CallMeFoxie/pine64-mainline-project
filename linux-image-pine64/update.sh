@@ -2,9 +2,15 @@
 
 VERSION=$1
 
-pushd debian/
+VERSION=$1
+PKGVERSION=`dpkg-parsechangelog -S Version`
 
-cat > /tmp/changelog.tmp << EOF
+if [ x"$VERSION" != x"$PKGVERSION" ]; then
+  echo "Updating meta package..."
+
+
+
+  cat > /tmp/changelog.tmp << EOF
 linux-image-pine64 (${VERSION}) stable; urgency=medium
 
   * upgrade kernel to ${VERSION}
@@ -13,22 +19,13 @@ linux-image-pine64 (${VERSION}) stable; urgency=medium
 
 EOF
 
-mv changelog changelog_old
-cat /tmp/changelog.tmp changelog_old > changelog
-rm changelog_old
+  mv debian/changelog debian/changelog_old
+  cat /tmp/changelog.tmp debian/changelog_old > debian/changelog
+  rm debian/changelog_old
+fi
 
-#rm control || :
-cat control.in | sed "s/@VERSION@/${VERSION}/g" > control
-
-#rm linux-image-pine64.postinst
-#cat linux-image-pine64-kernel.postinst.in | sed "s/@VERSION@/${VERSION}/g" > linux-image-pine64.postinst
-
-#rm linux-image-pine64.install
-#cat linux-image-pine64-kernel.install.in | sed "s/@VERSION@/${VERSION}/g" > linux-image-pine64.install
-
-popd
+cat debian/control.in | sed "s/@VERSION@/${VERSION}/g" > debian/control
 
 dpkg-buildpackage -tc -uc -b
 
-#rm debian/linux-image-pine64.postinst debian/linux-image-pine64.install
 rm debian/control || :
