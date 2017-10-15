@@ -19,10 +19,11 @@ docker run -ti \
   ARCH=arm64 make clean && \
   ARCH=arm64 make oldconfig && \
   ARCH=arm64 make -j5 deb-pkg KBUILD_IMAGE=arch/arm64/boot/Image && \
-  cp ../*.deb /base/output/ && \
+  mv ../*.deb /base/output/ && \
+  rm ../*.changes && \
   echo "===== Building Meta Package ====" && \
   KERNELVERSION=`cd /base/components/linux && make kernelversion` && \
   cd /base/linux-image-pine64/ && \
-  ./update.sh $KERNELVERSION \
+  ./update.sh $KERNELVERSION && \
   mv /base/linux-image-pine64*.deb /base/output/ && \
-  rm /base/linux-image-pine64*.changes'
+  rm /base/linux-image-pine64*.changes /base/linux-image-pine64*.buildinfo'

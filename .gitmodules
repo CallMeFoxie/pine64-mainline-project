@@ -10,3 +10,6 @@
 [submodule "components/linux"]
 	path = components/linux
 	url = git@github.com:CallMeFoxie/linux.git
+[submodule "components/sunxi-mali"]
+	path = components/sunxi-mali
+	url = git@github.com:Icenowy/sunxi-mali.git
