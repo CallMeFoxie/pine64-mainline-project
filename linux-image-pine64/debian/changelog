@@ -1,3 +1,9 @@
+linux-image-pine64 (4.13.8) stable; urgency=medium
+
+  * upgrade kernel to 4.13.8
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Thu, 19 Oct 2017 14:15:31 +0000
+
 linux-image-pine64 (4.13.7) stable; urgency=medium
 
   * upgrade kernel to 4.13.7
