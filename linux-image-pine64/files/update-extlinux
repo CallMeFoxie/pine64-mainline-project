@@ -43,7 +43,14 @@ DEFAULT=""
 
 if [ x"${XVERSION}" != "x" ]; then
   DEFAULT=${XVERSION}
-else
+  if [ ! -f "/boot/vmlinuz-${XVERSION}" ]; then
+    echo "Requested kernel ${XVERSION} does not exist!"
+    DEFAULT=""
+  fi
+fi
+
+if [ x"${DEFAULT}" = "x" ]; then
+  echo "Using default latest kernel"
   DEFAULT=`ls -t /boot/vmlinuz-* | head -n 1 | sed 's/\/boot\/vmlinuz-//'`
 fi
 
