@@ -62,7 +62,15 @@ run_chroot useradd -s /bin/bash -m pine
 run_chroot usermod -aG sudo pine
 echo "pine:${PASSWORD}" | run_chroot /usr/sbin/chpasswd
 
+echo "Doing extra tasks"
+if [ -d extras ]; then
+  cp extras/*.deb ${ROOTFS}/tmp/
+  run_chroot /bin/bash -c 'dpkg -i /tmp/*.deb' # need expat from bash
+  run_chroot apt-get -y -f install --no-install-recommends
+fi
+
 echo "Unmounting"
+rm ${ROOTFS}/tmp/*
 sync
 umount ${ROOTFS}/boot
 umount ${ROOTFS}
