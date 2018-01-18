@@ -62,6 +62,12 @@ run_chroot useradd -s /bin/bash -m pine
 run_chroot usermod -aG sudo pine
 echo "pine:${PASSWORD}" | run_chroot /usr/sbin/chpasswd
 
+echo "Generating locales"
+run_chroot locale-gen
+
+#echo "Setting permissions"
+#find overlay/ -type f -printf "%P\n"
+
 echo "Doing extra tasks"
 if [ -d extras ]; then
   cp extras/*.deb ${ROOTFS}/tmp/ || :

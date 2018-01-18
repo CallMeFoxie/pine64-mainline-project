@@ -1,3 +1,57 @@
+linux-image-pine64 (4.14.14) stable; urgency=medium
+
+  * upgrade kernel to 4.14.14
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Thu, 18 Jan 2018 18:53:58 +0000
+
+linux-image-pine64 (4.14.12) stable; urgency=medium
+
+  * upgrade kernel to 4.14.12
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Fri, 05 Jan 2018 16:41:00 +0000
+
+linux-image-pine64 (4.14.11) stable; urgency=medium
+
+  * upgrade kernel to 4.14.11
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Thu, 04 Jan 2018 19:48:30 +0000
+
+linux-image-pine64 (4.14.10) stable; urgency=medium
+
+  * upgrade kernel to 4.14.10
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Fri, 29 Dec 2017 17:41:39 +0000
+
+linux-image-pine64 (4.14.9) stable; urgency=medium
+
+  * upgrade kernel to 4.14.9
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Mon, 25 Dec 2017 18:23:03 +0000
+
+linux-image-pine64 (4.14.8) stable; urgency=medium
+
+  * upgrade kernel to 4.14.8
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Thu, 21 Dec 2017 19:47:30 +0000
+
+linux-image-pine64 (4.14.7) stable; urgency=medium
+
+  * upgrade kernel to 4.14.7
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Mon, 18 Dec 2017 14:34:17 +0000
+
+linux-image-pine64 (4.14.6) stable; urgency=medium
+
+  * upgrade kernel to 4.14.6
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Thu, 14 Dec 2017 17:22:29 +0000
+
+linux-image-pine64 (4.14.5) stable; urgency=medium
+
+  * upgrade kernel to 4.14.5
+
+ -- Ashley the Foxie <pine64@victorianfox.com>  Tue, 12 Dec 2017 07:50:29 +0000
+
 linux-image-pine64 (4.14.4) stable; urgency=medium
 
   * upgrade kernel to 4.14.4
