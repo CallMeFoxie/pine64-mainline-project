@@ -4,6 +4,8 @@ mkdir -p output/
 
 docker run -ti \
   -e "CROSS_COMPILE=aarch64-linux-gnu-" \
+  -e "DEBEMAIL=Ashley TheFoxie <pine@victorianfox.com>" \
+  -e "KDEB_CHANGELOG_DIST=stable" \
   -u `id -u`:`id -g` \
   -v `pwd`/:/base \
      aarch64-builder \
